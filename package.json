@@ -1,0 +1,26 @@
+{
+  "name": "postcss-easywyg-describe",
+  "version": "0.0.1",
+  "description": "Parse special Easywyg comments placed in CSS file and generate JSON output",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [
+    "parse",
+    "json",
+    "easywyg",
+    "wysiwyg",
+    "rte",
+    "css",
+    "comments"
+  ],
+  "author": "Andrew Kozlov <demerest@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.7.0"
+  },
+  "dependencies": {
+    "postcss": "^5.0.12"
+  }
+}
