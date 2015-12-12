@@ -1,7 +1,7 @@
 import test from 'ava';
 import 'babel-core/register';
 import postcss from 'postcss';
-import easywygDescribe from '../lib/index';
+import easywygDescribe from '../lib/plugin';
 
 let input = `
 /*! Name: Paragraph
