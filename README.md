@@ -1,6 +1,6 @@
 # postcss-easywyg-describe
 
-A plugin for [PostCSS].
+A plugin for PostCSS.
 
 Parse special Easywyg comments placed in CSS file and generate JSON output. Using this JSON Easywyg will generate dropdown style menu for you.
 
