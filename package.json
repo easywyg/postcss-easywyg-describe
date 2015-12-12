@@ -1,8 +1,8 @@
 {
   "name": "postcss-easywyg-describe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse special Easywyg comments placed in CSS file and generate JSON output",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "ava"
   },
