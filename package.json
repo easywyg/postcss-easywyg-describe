@@ -2,10 +2,12 @@
   "name": "postcss-easywyg-describe",
   "version": "0.0.4",
   "description": "Parse special Easywyg comments placed in CSS file and generate JSON output",
-  "main": "lib/plugin.js",
+  "main": "build/plugin.js",
   "scripts": {
-    "test": "ava",
-    "prepublish": "./node_modules/.bin/babel -d lib src/"
+    "test": "$(npm bin)/mocha --require babel-core/register",
+    "transpile": "$(npm bin)/babel src -d build",
+    "prepublish": "npm run transpile",
+    "postpublish": "rm -rf build"
   },
   "keywords": [
     "parse",
@@ -20,12 +22,12 @@
   "license": "MIT",
   "repository": "easywyg/postcss-easywyg-describe",
   "devDependencies": {
-    "ava": "^0.7.0",
     "babel-cli": "^6.3.17",
-    "babel-preset-es2015": "^6.3.13"
+    "babel-core": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "mocha": "^2.3.4"
   },
   "dependencies": {
-    "babel-core": "^6.3.17",
     "postcss": "^5.0.12"
   }
 }

@@ -64,22 +64,22 @@ class Describer {
 let describer = new Describer;
 
 export default postcss.plugin('postcss-easywyg-describe', (callback) => {
-    return (css, result) => {
-        css.walk((decl) => {
-          let annotation = decl.prev();
-          let comment;
+  return (css, result) => {
+    css.walk((decl) => {
+      let annotation = decl.prev();
+      let comment;
 
-          // Does we have coment before current decl? Save it.
-          if (annotation && 'comment' == annotation.type) {
-            comment = annotation.text;
-          }
+      // Does we have coment before current decl? Save it.
+      if (annotation && 'comment' == annotation.type) {
+        comment = annotation.text;
+      }
 
-          // If comment were found, set current rule and that comment
-          if (comment && 'rule' == decl.type) {
-            describer.set(decl.selector, comment);
-          }
-        });
+      // If comment were found, set current rule and that comment
+      if (comment && 'rule' == decl.type) {
+        describer.set(decl.selector, comment);
+      }
+    });
 
-        callback(describer.getJSON());
-    };
+    callback(describer.getJSON());
+  };
 });
