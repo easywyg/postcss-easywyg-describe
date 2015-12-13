@@ -54,10 +54,19 @@ class Describer {
   }
 
   parseComment(comment) {
-    return {
-      name: comment.match(/Name *: *([^\n]+)/i)[1],
-      group: comment.match(/Group *: *([^\n]+)/i)[1]
+    let result = {};
+    let name = comment.match(/Name *: *([^\n]+)/i);
+    let group = comment.match(/Group *: *([^\n]+)/i);
+
+    if (name) {
+      result.name = name[1];
     }
+
+    if (group) {
+      result.group = group[1];
+    }
+
+    return result;
   }
 }
 
