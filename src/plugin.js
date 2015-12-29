@@ -4,10 +4,7 @@ import postcss from 'postcss';
 
 class Describer {
   constructor() {
-    this.result = {
-      styles: {},
-      allowClasses: {}
-    };
+    this.reset()
   }
 
   set(selector, comment) {
@@ -53,6 +50,13 @@ class Describer {
     return JSON.stringify(this.result);
   }
 
+  reset() {
+    this.result = {
+      styles: {},
+      allowClasses: {}
+    };
+  }
+
   parseComment(comment) {
     let result = {};
     let name = comment.match(/Name *: *([^\n]+)/i);
@@ -74,6 +78,8 @@ let describer = new Describer;
 
 export default postcss.plugin('postcss-easywyg-describe', (callback) => {
   return (css, result) => {
+    describer.reset();
+
     css.walk((decl) => {
       let annotation = decl.prev();
       let comment;
